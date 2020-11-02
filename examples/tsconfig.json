@@ -13,5 +13,6 @@
         "skipLibCheck": true,
         "strict": false
     },
-    "include": ["types"]
+    "include": ["src/**/*"],
+    "exclude": ["node_modules"]
 }

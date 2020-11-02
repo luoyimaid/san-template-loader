@@ -46,8 +46,8 @@ module.exports = {
                         loader: 'babel-loader',
                         options: {
                             plugins: [
-                                require.resolve('@babel/plugin-proposal-class-properties'),
-                                require.resolve('san-hot-loader/lib/babel-plugin')
+                                require.resolve('@babel/plugin-proposal-class-properties')
+                                // require.resolve('san-hot-loader/lib/babel-plugin')
                             ],
                             presets: [
                                 [
@@ -64,31 +64,42 @@ module.exports = {
                     }
                 ]
             },
+            // {
+            //     test: /\.ts$/,
+            //     use: [
+            //         {
+            //             loader: 'babel-loader',
+            //             options: {
+            //                 plugins: [
+            //                     require.resolve('@babel/plugin-proposal-class-properties'),
+            //                     require.resolve('san-hot-loader/lib/babel-plugin')
+            //                 ],
+            //                 presets: [
+            //                     [
+            //                         require.resolve('@babel/preset-env'),
+            //                         {
+            //                             targets: {
+            //                                 browsers: '> 1%, last 2 versions'
+            //                             },
+            //                             modules: false
+            //                         }
+            //                     ],
+            //                     [require.resolve('@babel/preset-typescript'), {allExtensions: true}]
+            //                 ]
+            //             }
+            //         }
+            //     ]
+            // },
             {
                 test: /\.ts$/,
                 use: [
-                    {
-                        loader: 'babel-loader',
-                        options: {
-                            plugins: [
-                                require.resolve('@babel/plugin-proposal-class-properties'),
-                                require.resolve('san-hot-loader/lib/babel-plugin')
-                            ],
-                            presets: [
-                                [
-                                    require.resolve('@babel/preset-env'),
-                                    {
-                                        targets: {
-                                            browsers: '> 1%, last 2 versions'
-                                        },
-                                        modules: false
-                                    }
-                                ],
-                                [require.resolve('@babel/preset-typescript'), {allExtensions: true}]
-                            ]
-                        }
-                    }
-                ]
+                      {
+                           loader: 'ts-loader',
+                           options: {
+                            //    appendTsSuffixTo: [/\.san$/] // 给.san文件添加.ts后缀
+                            }
+                     }
+                 ]
             },
             {
                 test: /\.less$/,

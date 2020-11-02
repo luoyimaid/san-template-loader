@@ -9,7 +9,9 @@
  */
 
 import {Component} from 'san';
+// const {Component} = require('san');
 import '../../../store/global-action';
+// const template = require('./template.html');
 import template from './template.html';
 import './style.less';
 
