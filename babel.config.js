@@ -12,8 +12,6 @@ module.exports = {
             }
         ]
     ],
-    plugins: [
-        require('@babel/plugin-proposal-class-properties')
-    ],
+    plugins: ["@babel/plugin-proposal-class-properties"],
     exclude: 'node_modules'
 };

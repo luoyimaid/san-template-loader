@@ -9,14 +9,13 @@
  */
 
 import {Component} from 'san';
-import Text from './component';
-import styles from './style.module.less';
 
-export default class Video extends Component {
+import styles from '../style.module.less';
+
+export default class Text extends Component {
     static template = /* html */`
-        <div class="{{styles.searchWordItem}}">
-            hello world!
-            <led-text class="{{styles.componentText}}" />
+        <div class="{{styles.text}}">
+            hello luoyi_maid!
         </div>
     `;
 
@@ -25,10 +24,6 @@ export default class Video extends Component {
             return `<em class="{{styles.amount}}">10</em>`;
         }
     };
-
-    static components = {
-        'led-text': Text
-    }
 
     static component = {
 
@@ -41,10 +36,10 @@ export default class Video extends Component {
         };
     }
     inited() {
-        console.log('inited');
+        console.log('component inited');
     }
 
     attached() {
-        console.log('attached');
+        console.log('component attached');
     }
 };

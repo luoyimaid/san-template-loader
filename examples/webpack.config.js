@@ -10,7 +10,6 @@
 
 const webpack = require('webpack');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
-const SanLoaderPlugin = require('../lib/plugin');
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
@@ -25,20 +24,6 @@ module.exports = {
     mode: 'development',
     module: {
         rules: [
-            {
-                test: /\.san$/,
-                use: [
-                    {
-                        loader: require.resolve('san-hot-loader')
-                    },
-                    {
-                        loader: path.resolve(__dirname, '../index.js'),
-                        options: {
-                            compileTemplate: 'aPack'
-                        }
-                    }
-                ]
-            },
             {
                 test: /\.js$/,
                 use: [
@@ -61,45 +46,16 @@ module.exports = {
                                 ]
                             ]
                         }
+                    },
+                    {
+                        loader: path.resolve(__dirname, '../index.js'),
+                        options: {
+                            compileTemplate: 'aPack',
+                            mode: 'compact'
+                        }
                     }
+                    
                 ]
-            },
-            // {
-            //     test: /\.ts$/,
-            //     use: [
-            //         {
-            //             loader: 'babel-loader',
-            //             options: {
-            //                 plugins: [
-            //                     require.resolve('@babel/plugin-proposal-class-properties'),
-            //                     require.resolve('san-hot-loader/lib/babel-plugin')
-            //                 ],
-            //                 presets: [
-            //                     [
-            //                         require.resolve('@babel/preset-env'),
-            //                         {
-            //                             targets: {
-            //                                 browsers: '> 1%, last 2 versions'
-            //                             },
-            //                             modules: false
-            //                         }
-            //                     ],
-            //                     [require.resolve('@babel/preset-typescript'), {allExtensions: true}]
-            //                 ]
-            //             }
-            //         }
-            //     ]
-            // },
-            {
-                test: /\.ts$/,
-                use: [
-                      {
-                           loader: 'ts-loader',
-                           options: {
-                            //    appendTsSuffixTo: [/\.san$/] // 给.san文件添加.ts后缀
-                            }
-                     }
-                 ]
             },
             {
                 test: /\.less$/,
@@ -225,7 +181,6 @@ module.exports = {
         new HTMLWebpackPlugin({
             template: path.resolve(__dirname, './index.html')
         }),
-        new SanLoaderPlugin(),
         // new MiniCssExtractPlugin({
         //     filename: '[name].css',
         //     chunkFilename: '[id].css'
