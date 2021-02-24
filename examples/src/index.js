@@ -11,6 +11,7 @@
 import {Component} from 'san';
 import Text from './component';
 import styles from './style.module.less';
+console.log(styles);
 
 export default class Video extends Component {
     static template = /* html */`

@@ -14,7 +14,7 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-    entry: path.resolve(__dirname, './src/index.js'),
+    entry: path.resolve(__dirname, './index.js'),
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist')
@@ -46,15 +46,14 @@ module.exports = {
                                 ]
                             ]
                         }
-                    },
-                    {
-                        loader: path.resolve(__dirname, '../index.js'),
-                        options: {
-                            compileTemplate: 'aPack',
-                            mode: 'compact'
-                        }
                     }
-                    
+                    // {
+                    //     loader: path.resolve(__dirname, '../index.js'),
+                    //     options: {
+                    //         compileTemplate: 'aPack',
+                    //         mode: 'compact'
+                    //     }
+                    // }
                 ]
             },
             {
@@ -92,6 +91,10 @@ module.exports = {
                             {
                                 loader: 'css-loader',
                                 options: {
+                                    modules: {
+                                        localIdentName: '[local]_[hash:base64:5]'
+                                    },
+                                    localsConvention: 'camelCase',
                                     sourceMap: true
                                 }
                             },
