@@ -17,7 +17,7 @@ export default class Video extends Component {
     static template = /* html */`
         <div class="{{styles.searchWordItem}}">
             hello world!
-            <led-text class="{{styles.componentText}}" />
+            <led-text class="{{styles.componentText}}" style="border: 1px solid red;"/>
         </div>
     `;
 
