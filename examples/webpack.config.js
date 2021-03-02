@@ -19,9 +19,10 @@ module.exports = {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist')
     },
-    devtool: 'inline-source-map',
+    devtool: 'source',
     // devtool: false,
     mode: 'development',
+    watch: true,
     module: {
         rules: [
             {
@@ -46,14 +47,14 @@ module.exports = {
                                 ]
                             ]
                         }
+                    },
+                    {
+                        loader: path.resolve(__dirname, '../index.js'),
+                        options: {
+                            compileTemplate: 'aPack',
+                            mode: 'compact'
+                        }
                     }
-                    // {
-                    //     loader: path.resolve(__dirname, '../index.js'),
-                    //     options: {
-                    //         compileTemplate: 'aPack',
-                    //         mode: 'compact'
-                    //     }
-                    // }
                 ]
             },
             {
@@ -175,10 +176,11 @@ module.exports = {
         extensions: ['.js', '.ts', '.san', '.json']
     },
     devServer: {
-        contentBase: path.resolve(__dirname, 'dist'),
+        contentBase: path.resolve(__dirname),
         overlay: true,
         hot: true,
-        inline: true
+        inline: true,
+        port: 8080
     },
     plugins: [
         new HTMLWebpackPlugin({
