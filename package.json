@@ -1,43 +1,18 @@
 {
-    "name": "san-loader",
-    "version": "0.2.0",
+    "name": "@baidu/san-apack-loader",
+    "version": "1.0.0",
     "description": "San single-file loader for Webpack",
     "main": "index.js",
     "scripts": {
         "commit": "git-cz",
         "test": "node scripts/test.js",
-        "es-check": "es-check es5 'lib/runtime/*.js'",
         "dev": "webpack-dev-server --config examples/webpack.config.js",
-        "dev:build": "webpack --config examples/webpack.config.js",
-        "prepublishOnly": "es-check es5 'lib/runtime/*.js'"
+        "dev:build": "webpack --config examples/webpack.config.js"
     },
-    "lint-staged": {
-        "!(example|dist|output|__mocks__)/**/*.js": [
-            "eslint"
-        ],
-        "lib/runtime/*.js": [
-            "es-check es5"
-        ]
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "lint-staged && node scripts/test.js"
-        }
-    },
-    "author": "ecomfe-core",
-    "contributors": [
-        {
-            "name": "clark-t"
-        },
-        {
-            "name": "ksky521",
-            "url": "https://github.com/ksky521"
-        }
-    ],
+    "author": "luoyimaid",
     "license": "MIT",
     "dependencies": {
         "loader-utils": "^2.0.0",
-        "magic-string": "^0.25.7",
         "san-anode-utils": "~3.10.0"
     },
     "repository": {
@@ -65,10 +40,6 @@
         "@babel/traverse": "7.12.12",
         "@babel/types": "7.12.12",
         "babel-eslint": "^11.0.0-beta.2",
-        "escodegen": "^2.0.0",
-        "esprima": "^4.0.1",
-        "estraverse": "^5.2.0",
-        "htmlparser2": "^6.0.0",
         "webpack": "^5.19.0"
     },
     "peerDependencies": {
