@@ -1,6 +1,6 @@
 {
     "name": "@baidu/san-apack-loader",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "San single-file loader for Webpack",
     "main": "index.js",
     "scripts": {
