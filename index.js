@@ -5,7 +5,7 @@
  * See LICENSE file in the project root for license information.
  *
  * @file loader index
- * @author clark-t
+ * @author luoyi_maid
  */
 
 module.exports = require('./lib/loader');
